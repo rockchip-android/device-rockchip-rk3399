@@ -1,0 +1,22 @@
+# Android fstab file.
+#<src>                                          <mnt_point>         <type>    <mnt_flags and options>                       <fs_mgr_flags>
+# The filesystem that contains the filesystem checker binary (typically /system) cannot
+# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
+
+/dev/block/platform/fe330000.rksdmmc/by-name/system         /system             ext4      ro,noatime,nodiratime,noauto_da_alloc                                  wait,resize,check
+# use this line below instead to enable verity
+#/dev/block/platform/fe330000.rksdmmc/by-name/system         /system             ext4      ro,noatime,nodiratime,noauto_da_alloc                                  wait,check,verify
+/dev/block/platform/fe330000.rksdmmc/by-name/cache          /cache              ext4      noatime,nodiratime,nosuid,nodev,noauto_da_alloc,discard                wait
+/dev/block/platform/fe330000.rksdmmc/by-name/metadata       /metadata           ext4      noatime,nodiratime,nosuid,nodev,noauto_da_alloc,discard                wait,check
+/dev/block/platform/fe330000.rksdmmc/by-name/userdata       /data               ext4      noatime,nodiratime,nosuid,nodev,noauto_da_alloc,discard,errors=panic   wait,check,encryptable=/metadata/key_file
+
+/devices/ff400000.rksdmmc/mmc_host*         auto  auto    defaults        voldmanaged=sdcard1:auto,encryptable=userdata
+
+# non box product,configuration to the first item, will filter out left
+#58,54 support high speed & full speed;50 only support high speed, 5c only support full speed and must link hsic hub
+/devices/platform/ff4c0000.usb*     auto vfat defaults      voldmanaged=usb:auto
+/devices/platform/ff480000.usb*     auto vfat defaults      voldmanaged=usb:auto
+#/devices/ff540000.usb*     auto vfat defaults      voldmanaged=usb:auto
+#/devices/ff5c0000.usb*     auto vfat defaults      voldmanaged=usb:auto
+
+/dev/block/zram0                                none                swap      defaults                                              zramsize=533413200

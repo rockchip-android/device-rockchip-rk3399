@@ -1,0 +1,14 @@
+一、目前谷歌标准ota包方式升级能支持parameter更新，但有一些限制：
+
+1. 更新parameter只能使用ota完整包升级，不支持差异升级parameter。
+2. 根据RK29 Parameter File Format Ver1.1.pdf 描述，backup区不能改大，只能改小。如果想改大backup区，必须擦除idb，所以本机升级不能去改大backup区。
+3. backup区以及之前的分区大小和位置不能改变。之后的分区能随意改变和增加分区。
+4. user区可能被改变，所以不支持升级包放在内部falsh的升级，只能放在外部sd卡升级。或者能保证其所在分区位置大小不变。
+5. recovery区的地址不能改变，否则重启后就找不到recovery了；
+
+二、parameter升级操作步骤
+
+1. 拷贝最新的parameter文件到device/rockchip/rk**/parameter/目录下，以parameter名称开头即可，如parameter_sdk。该目录下只能存在一个parameter文件。
+2. make otapackage 编译ota完整包
+3. 拷贝到sd卡或flash根目录下重命名update.zip系统能自动检测到该升级包，能自动完成升级。升级过程中先烧写新的parameter，然后会重启一次，接着继续更新其他部分。
+
