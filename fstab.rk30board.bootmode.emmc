@@ -3,12 +3,12 @@
 # The filesystem that contains the filesystem checker binary (typically /system) cannot
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
-/dev/block/platform/fe330000.rksdmmc/by-name/system         /system             ext4      ro,noatime,nodiratime,noauto_da_alloc                                  wait,resize,check
+/dev/block/platform/fe330000.sdhci/by-name/system         /system             ext4      ro,noatime,nodiratime,noauto_da_alloc                                  wait,resize,check
 # use this line below instead to enable verity
-#/dev/block/platform/fe330000.rksdmmc/by-name/system         /system             ext4      ro,noatime,nodiratime,noauto_da_alloc                                  wait,check,verify
-/dev/block/platform/fe330000.rksdmmc/by-name/cache          /cache              ext4      noatime,nodiratime,nosuid,nodev,noauto_da_alloc,discard                wait
-/dev/block/platform/fe330000.rksdmmc/by-name/metadata       /metadata           ext4      noatime,nodiratime,nosuid,nodev,noauto_da_alloc,discard                wait,check
-/dev/block/platform/fe330000.rksdmmc/by-name/userdata       /data               ext4      noatime,nodiratime,nosuid,nodev,noauto_da_alloc,discard,errors=panic   wait,check,encryptable=/metadata/key_file
+#/dev/block/platform/fe330000.sdhci/by-name/system         /system             ext4      ro,noatime,nodiratime,noauto_da_alloc                                  wait,check,verify
+/dev/block/platform/fe330000.sdhci/by-name/cache          /cache              ext4      noatime,nodiratime,nosuid,nodev,noauto_da_alloc,discard                wait
+/dev/block/platform/fe330000.sdhci/by-name/metadata       /metadata           ext4      noatime,nodiratime,nosuid,nodev,noauto_da_alloc,discard                wait,check
+/dev/block/platform/fe330000.sdhci/by-name/userdata       /data               ext4      noatime,nodiratime,nosuid,nodev,noauto_da_alloc,discard,errors=panic   wait,check,encryptable=/metadata/key_file
 
 /devices/ff400000.rksdmmc/mmc_host*         auto  auto    defaults        voldmanaged=sdcard1:auto,encryptable=userdata
 
