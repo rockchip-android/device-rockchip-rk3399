@@ -22,7 +22,7 @@
 ######################################################################
 
 TARGET_BOARD_PLATFORM ?= rk3399
-TARGET_BOARD_PLATFORM_GPU ?= mali-t864
+TARGET_BOARD_PLATFORM_GPU ?= mali-t860
 
 # Choose a product to build for.  Look in the products directory for ones
 # that work.
