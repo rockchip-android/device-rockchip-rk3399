@@ -17,3 +17,5 @@
 $(call inherit-product, $(LOCAL_PATH)/rk3399_64.mk)
 
 PRODUCT_NAME := rk3399_64_VR
+PRODUCT_DEVICE := rk3399_64_VR
+PRODUCT_MODEL := rk3399-VR
