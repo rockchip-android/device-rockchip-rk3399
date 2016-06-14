@@ -56,8 +56,8 @@ TARGET_SUPPORTS_64_BIT_APPS := true
 endif
 
 # Sensors
-BOARD_SENSOR_ST := true
-#BOARD_SENSOR_MPU := true
+#BOARD_SENSOR_ST := true
+BOARD_SENSOR_MPU := true
 #BOARD_USES_GENERIC_INVENSENSE := false
 
 MALLOC_IMPL := dlmalloc
