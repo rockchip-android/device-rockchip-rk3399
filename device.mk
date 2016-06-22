@@ -43,7 +43,104 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.${TARGET_BOARD_PLATFORM_PRODUCT}.rc:root/init.${TARGET_BOARD_PLATFORM_PRODUCT}.rc \
     $(LOCAL_PATH)/fstab.rk30board.bootmode.unknown:root/fstab.rk30board.bootmode.unknown \
     $(LOCAL_PATH)/fstab.rk30board.bootmode.emmc:root/fstab.rk30board.bootmode.emmc \
+    $(LOCAL_PATH)/debug/init.debug.rc:root/init.debug.rc \
 	$(LOCAL_PATH)/init.rk30board.usb.rc:root/init.rk30board.usb.rc
+
+# debug-logs
+ifeq ($(MIXIN_DEBUG_LOGS),true)
+ADDITIONAL_DEFAULT_PROPERTIES += ro.service.default_logfs=apklogfs
+ADDITIONAL_DEFAULT_PROPERTIES += ro.intel.logger=/system/vendor/bin/logcatext
+ADDITIONAL_DEFAULT_PROPERTIES += persist.intel.logger.rot_cnt=20
+ADDITIONAL_DEFAULT_PROPERTIES += persist.intel.logger.rot_size=5000
+BOARD_SEPOLICY_DIRS += $(local_path)/sepolicy/debug-logs
+BOARD_SEPOLICY_M4DEFS += module_debug_logs=true
+endif
+
+# debug-crashlogd
+ifeq ($(MIXIN_DEBUG_LOGS),true)
+
+CRASHLOGD_LOGS_PATH := "/data/logs"
+CRASHLOGD_APLOG := true
+CRASHLOGD_FULL_REPORT := true
+CRASHLOGD_MODULE_MODEM ?= true
+CRASHLOGD_MODULE_BTDUMP := true
+CRASHLOGD_USE_SD := false
+CRASHLOGD_ARCH := sofia
+endif
+
+# debug-coredump
+ifeq ($(MIXIN_DEBUG_LOGS),true)
+BOARD_SEPOLICY_DIRS += $(local_path)/sepolicy/coredump
+
+# Enable core dump for eng builds
+ifeq ($(TARGET_BUILD_VARIANT),eng)
+ADDITIONAL_DEFAULT_PROPERTIES += persist.core.enabled=1
+else
+ADDITIONAL_DEFAULT_PROPERTIES += persist.core.enabled=0
+endif
+CRASHLOGD_COREDUMP := true
+endif
+
+
+
+# debug-unresponsive
+ifneq ($(TARGET_BUILD_VARIANT),user)
+ADDITIONAL_DEFAULT_PROPERTIES += sys.dropbox.max_size_kb=4096
+
+ADDITIONAL_DEFAULT_PROPERTIES += sys.dump.binder_stats.uiwdt=1
+ADDITIONAL_DEFAULT_PROPERTIES += sys.dump.binder_stats.anr=1
+endif
+
+ifeq ($(MIXIN_DEBUG_LOGS),true)
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/debug/init.logs.rc:root/init.logs.rc
+PRODUCT_PACKAGES += \
+    logcatext \
+    elogs.sh \
+    start_log_srv.sh \
+    logcat_ep.sh
+endif
+
+# debug-crashlogd
+ifeq ($(MIXIN_DEBUG_LOGS),true)
+PRODUCT_COPY_FILES += \
+  $(LOCAL_PATH)/debug/init.crashlogd.rc:root/init.crashlogd.rc \
+  $(call add-to-product-copy-files-if-exists,$(LOCAL_PATH)/ingredients.conf:$(TARGET_COPY_OUT_VENDOR)/etc/ingredients.conf) \
+  $(call add-to-product-copy-files-if-exists,$(LOCAL_PATH)/crashlog.conf:$(TARGET_COPY_OUT_VENDOR)/etc/crashlog.conf)
+PRODUCT_PACKAGES += \
+    crashlogd \
+    dumpstate_dropbox.sh
+endif
+
+# debug-coredump
+ifeq ($(MIXIN_DEBUG_LOGS),true)
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/debug/init.coredump.rc:root/init.coredump.rc
+endif
+
+# debug-phonedoctor
+ifeq ($(MIXIN_DEBUG_LOGS),true)
+# PRODUCT_PACKAGES += crash_package
+endif
+# debug-charging
+# make console and adb available in charging mode for eng and userdebug builds
+ifneq ($(TARGET_BUILD_VARIANT),user)
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/debug/init.debug-charging.rc:root/init.debug-charging.rc
+endif
+
+# debug-kernel
+ifneq ($(TARGET_BUILD_VARIANT),user)
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/debug/init.kernel.rc:root/init.kernel.rc
+endif
+
+# debug-log-watch
+ifneq ($(TARGET_BUILD_VARIANT),user)
+ifeq ($(MIXIN_DEBUG_LOGS),true)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/debug/log-watch-kmsg.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/log-watch-kmsg.cfg \
+    $(LOCAL_PATH)/debug/init.log-watch.rc:root/init.log-watch.rc
+
+PRODUCT_PACKAGES += log-watch
+endif
+endif
 
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)

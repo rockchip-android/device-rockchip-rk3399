@@ -1,0 +1,18 @@
+on init
+    write /proc/sys/fs/suid_dumpable 1
+
+on post-fs-data
+    mkdir /data/tombstones 0755 system system
+    mkdir /data/system 0755 system system
+    mkdir /data/system/dropbox 0700 system system
+    mkdir /data/logs/modemcrash 0775 system system
+    mkdir /data/logs/stats 0775 system system
+    mkdir /data/logs/aplogs 0775 system log
+
+service crashlogd /system/vendor/bin/crashlogd
+    class late_start
+
+# started by vendor/intel/log_capture/crashlog
+#service logsystemstate /system/vendor/bin/dumpstate_dropbox.sh -v
+#    disabled
+#    oneshot

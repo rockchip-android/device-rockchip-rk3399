@@ -1,0 +1,13 @@
+service oct_trace_on /system/bin/oct_trace_ctrl.sh ON
+    class main
+    disabled
+    user root
+    group root
+    oneshot
+
+service oct_trace_off /system/bin/oct_trace_ctrl.sh OFF
+    class main
+    disabled
+    user root
+    group root
+    oneshot

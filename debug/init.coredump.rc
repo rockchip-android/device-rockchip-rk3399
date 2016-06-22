@@ -1,0 +1,15 @@
+on early-init
+    setrlimit 4 -1 -1
+
+    # Add code sections in coredump
+    write /proc/self/coredump_filter 0x2F
+
+on post-fs-data
+    mkdir /data/core 0773 root log
+    write /proc/sys/kernel/core_pattern /data/core/%t_%e_%p.core
+
+on property:persist.core.enabled=0
+    setrlimit 4 0 0
+
+on property:persist.core.enabled=1
+    setrlimit 4 -1 -1

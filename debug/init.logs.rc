@@ -1,0 +1,52 @@
+on post-fs-data
+    mkdir /data/logs 0770 system log
+
+on property:persist.service.aplogfs.enable=0
+    stop ap_logfs
+
+on property:persist.service.aplogfs.enable=1
+    setprop persist.service.apklogfs.enable 0
+    restart ap_log_srv
+
+on property:persist.service.apklogfs.enable=0
+    stop apk_logfs
+
+on property:persist.service.apklogfs.enable=1
+    setprop persist.service.aplogfs.enable 0
+    restart ap_log_srv
+
+service apk_logfs /system/vendor/bin/logcat_ep.sh auto \
+        -b main -b system -b radio -b events -b crash -b kernel \
+        -v threadtime -f /data/logs/aplog
+    disabled
+
+service ap_logfs /system/vendor/bin/logcat_ep.sh auto \
+        -b main -b system -b radio -b events -b crash \
+        -v threadtime -f /data/logs/aplog
+    disabled
+
+# Service called at boot time after data is decrypted
+#
+# This is done through the late_start class or through persist properties
+# that are only available after data is decrypted.
+# The service may be called again when the properties are updated.
+service ap_log_srv /system/vendor/bin/start_log_srv.sh
+    class late_start
+    oneshot
+
+service earlylogs /system/vendor/bin/elogs.sh
+    class core
+    oneshot
+
+on nonencrypted
+    stop earlylogs
+
+on property:vold.decrypt=trigger_restart_framework
+    stop earlylogs
+
+on property:persist.service.elogs.enable=1
+    mkdir /cache/elogs 0770 system log
+    restorecon /cache/elogs
+
+on property:persist.service.elogs.enable=0
+    exec -- /system/bin/rm -rf /cache/elogs

@@ -1,0 +1,7 @@
+import /init.stt_trace.rc
+import /init.logs.rc
+import /init.crashlogd.rc
+import /init.coredump.rc
+import /init.log-watch.rc
+import /init.kernel.rc
+import /init.debug-charging.rc
