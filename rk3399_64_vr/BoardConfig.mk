@@ -4,4 +4,4 @@ include device/rockchip/rk3399/BoardConfig.mk
 #BOARD_SENSOR_ST := true
 BOARD_SENSOR_MPU := true
 
-TARGET_BOARD_PLATFORM_PRODUCT := VR
+TARGET_BOARD_PLATFORM_PRODUCT := vr

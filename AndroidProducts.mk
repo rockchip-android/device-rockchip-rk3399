@@ -17,7 +17,7 @@
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/rk3399.mk \
     $(LOCAL_DIR)/rk3399_64.mk \
-    $(LOCAL_DIR)/rk3399_64_VR.mk \
+    $(LOCAL_DIR)/rk3399_64_vr.mk \
     $(LOCAL_DIR)/rk3399_32.mk \
     $(LOCAL_DIR)/rk3399_box.mk \
     $(LOCAL_DIR)/rk3399_64_only.mk
