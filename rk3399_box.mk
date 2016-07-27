@@ -22,3 +22,8 @@ PRODUCT_MODEL := rk3399-box
 
 PRODUCT_AAPT_CONFIG := normal tvdpi hdpi
 PRODUCT_AAPT_PREF_CONFIG := tvdpi
+
+# debug-logs
+ifneq ($(TARGET_BUILD_VARIANT),user)
+MIXIN_DEBUG_LOGS := true
+endif
