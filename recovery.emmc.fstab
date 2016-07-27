@@ -1,7 +1,7 @@
 # Android fstab file.
 #<src>                                       <mnt_point>         <type>    <mnt_flags and options>       <fs_mgr_flags>
 /dev/block/platform/fe330000.sdhci/by-name/user                  /mnt/internal_sd     vfat             defaults                  defaults
-/dev/block/mmcblk1p1                                               /mnt/external_sd     vfat             /dev/block/mmcblk1                  defaults
+/dev/block/mmcblk0p1                                               /mnt/external_sd     vfat             /dev/block/mmcblk1                  defaults
 /dev/block/platform/fe330000.sdhci/by-name/system                /system              ext4             defaults                  defaults
 /dev/block/platform/fe330000.sdhci/by-name/cache                 /cache               ext4             defaults                  defaults
 /dev/block/platform/fe330000.sdhci/by-name/metadata              /metadata            ext4             defaults                  defaults
