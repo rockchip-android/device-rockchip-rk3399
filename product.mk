@@ -20,8 +20,4 @@ PRODUCT_RUNTIMES := runtime_libart_default
 
 $(call inherit-product, device/rockchip/rk3399/device.mk)
 
-ifneq ($(filter %64, $(TARGET_PRODUCT)), )
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-else
-$(call inherit-product, device/rockchip/rk3399/product_32_only.mk)
-endif
