@@ -8,7 +8,6 @@
 /dev/block/platform/fe330000.sdhci/by-name/userdata              /data                ext4             defaults                  defaults
 /dev/block/platform/fe330000.sdhci/by-name/cust                  /cust                ext4             defaults                  defaults
 /dev/block/platform/fe330000.sdhci/by-name/custom                /custom              ext4             defaults                  defaults
-/dev/block/platform/fe330000.sdhci/by-name/radical_update        /radical_update      ext4             defaults                  defaults
 /dev/block/platform/fe330000.sdhci/by-name/misc                  /misc                emmc             defaults                  defaults
 /dev/block/platform/fe330000.sdhci/by-name/uboot                 /uboot               emmc             defaults                  defaults
 /dev/block/platform/fe330000.sdhci/by-name/charge                /charge              emmc             defaults                  defaults
