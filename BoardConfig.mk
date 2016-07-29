@@ -57,7 +57,8 @@ endif
 
 # Sensors
 BOARD_SENSOR_ST := false
-BOARD_SENSOR_MPU := true
+BOARD_SENSOR_MPU := false
+BOARD_SENSOR_MPU_VR := true
 #BOARD_USES_GENERIC_INVENSENSE := false
 
 MALLOC_IMPL := dlmalloc
