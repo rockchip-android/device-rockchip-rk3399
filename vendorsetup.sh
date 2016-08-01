@@ -3,5 +3,6 @@ add_lunch_combo rk3399_32-userdebug
 add_lunch_combo rk3399_box-userdebug
 add_lunch_combo rk3399_box-user
 add_lunch_combo rk3399_64-userdebug
+add_lunch_combo rk3399_64-user
 add_lunch_combo rk3399_64_vr-userdebug
 add_lunch_combo rk3399_64_vr-user
