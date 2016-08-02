@@ -142,6 +142,17 @@ PRODUCT_PACKAGES += log-watch
 endif
 endif
 
+# config file for App alarm alignment
+ifeq ($(strip $(BOARD_USE_APP_ALARM_ALIGNMENT)),true)
+PRODUCT_COPY_FILES += \
+   device/rockchip/common/alarm_alignment_conf.xml:system/etc/alarm_alignment_conf.xml
+# Setup default value, SHOULD be the same as the value in alarm_alignment_conf.xml
+# In milli-second unit.
+# This value can (and will) be overwritten at runtime.
+PRODUCT_PROPERTY_OVERRIDES += \
+   persist.sys.alarm.fixed=300000
+endif
+
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 

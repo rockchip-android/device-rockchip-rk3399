@@ -22,5 +22,5 @@ PRODUCT_MODEL := rk3399-vr
 
 # debug-logs
 ifneq ($(TARGET_BUILD_VARIANT),user)
-MIXIN_DEBUG_LOGS := true
+MIXIN_DEBUG_LOGS ?= true
 endif

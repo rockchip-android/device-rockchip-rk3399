@@ -17,3 +17,9 @@
 $(call inherit-product, $(LOCAL_PATH)/rk3399.mk)
 
 PRODUCT_NAME := rk3399_64
+# debug-logs
+ifneq ($(TARGET_BUILD_VARIANT),user)
+MIXIN_DEBUG_LOGS ?= true
+endif
+
+BOARD_USE_APP_ALARM_ALIGNMENT ?= true
