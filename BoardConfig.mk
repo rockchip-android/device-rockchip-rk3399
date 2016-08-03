@@ -65,3 +65,7 @@ MALLOC_IMPL := dlmalloc
 
 # Copy rk3399 own init.rc file
 # TARGET_PROVIDES_INIT_RC := true
+
+
+//MAX-SIZE=2G, for generate out/.../system.img
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2147483648
