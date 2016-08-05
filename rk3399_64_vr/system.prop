@@ -11,6 +11,7 @@ wifi.interface=wlan0
 rild.libpath=/system/lib/libril-rk29-dataonly.so
 rild.libargs=-d /dev/ttyACM0
 persist.tegra.nvmmlite = 1
+persist.display.portrait=true
 ro.audio.monitorOrientation=true
 
 #NFC
