@@ -30,7 +30,7 @@ endif
 
 # google apps
 BUILD_WITH_GOOGLE_MARKET := true
-BUILD_WITH_GOOGLE_MARKET_ALL := true
+BUILD_WITH_GOOGLE_MARKET_ALL := false
 BUILD_WITH_GOOGLE_FRP := true
 
 #for data encrypt options
