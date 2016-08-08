@@ -41,10 +41,18 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init.${TARGET_BOARD_PLATFORM_PRODUCT}.rc:root/init.${TARGET_BOARD_PLATFORM_PRODUCT}.rc \
-    $(LOCAL_PATH)/fstab.rk30board.bootmode.unknown:root/fstab.rk30board.bootmode.unknown \
-    $(LOCAL_PATH)/fstab.rk30board.bootmode.emmc:root/fstab.rk30board.bootmode.emmc \
     $(LOCAL_PATH)/debug/init.debug.rc:root/init.debug.rc \
 	$(LOCAL_PATH)/init.rk30board.usb.rc:root/init.rk30board.usb.rc
+
+ifeq ($(BUILD_WITH_FORCEENCRYPT),true)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/fstab.rk30board.bootmode.forceencrypt.unknown:root/fstab.rk30board.bootmode.unknown \
+    $(LOCAL_PATH)/fstab.rk30board.bootmode.forceencrypt.emmc:root/fstab.rk30board.bootmode.emmc
+else
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/fstab.rk30board.bootmode.unknown:root/fstab.rk30board.bootmode.unknown \
+    $(LOCAL_PATH)/fstab.rk30board.bootmode.emmc:root/fstab.rk30board.bootmode.emmc
+endif
 
 # debug-logs
 ifeq ($(MIXIN_DEBUG_LOGS),true)
