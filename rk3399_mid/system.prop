@@ -41,4 +41,3 @@ wifi.supplicant_scan_interval=15
 ro.factory.tool=0
 #set default lcd density for rk3399 tablet
 ro.sf.lcd_density=240
-ro.adb.secure =0

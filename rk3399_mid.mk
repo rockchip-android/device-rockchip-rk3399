@@ -32,3 +32,14 @@ endif
 BUILD_WITH_GOOGLE_MARKET := true
 BUILD_WITH_GOOGLE_MARKET_ALL := true
 BUILD_WITH_GOOGLE_FRP := true
+
+#for cts requirement
+ifeq ($(TARGET_BUILD_VARIANT),user)
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.adb.secure=1 \
+    persist.sys.usb.config=mtp
+else
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.adb.secure=0 \
+    persist.sys.usb.config=mtp,adb
+endif
