@@ -43,3 +43,5 @@ ro.factory.tool=0
 #set default lcd density for rk3399 tablet
 ro.sf.lcd_density=534
 ro.adb.secure =0
+sys.xxx.x_w=1152
+sys.xxx.x_h=2048
