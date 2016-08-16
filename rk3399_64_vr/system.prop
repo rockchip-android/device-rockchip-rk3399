@@ -20,7 +20,7 @@ debug.nfc.se=false
 
 #add Rockchip properties here
 ro.rk.screenshot_enable=true
-ro.rk.def_brightness=200
+ro.rk.def_brightness=50
 ro.rk.homepage_base=http://www.google.com/webhp?client={CID}&amp;source=android-home
 ro.rk.install_non_market_apps=false
 sys.hwc.compose_policy=6
