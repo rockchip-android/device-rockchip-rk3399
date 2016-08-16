@@ -18,6 +18,7 @@ PRODUCT_PROPERTY_OVERRIDES := \
     ro.opengles.version=196609
 
 PRODUCT_PACKAGES += \
+    memtrack.$(TARGET_BOARD_PLATFORM) \
     Launcher3
 
 #enable this for support f2fs with data partion
