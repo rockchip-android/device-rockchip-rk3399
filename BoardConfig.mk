@@ -62,7 +62,7 @@ BOARD_SENSOR_MPU := false
 BOARD_SENSOR_MPU_VR := true
 #BOARD_USES_GENERIC_INVENSENSE := false
 
-#MALLOC_IMPL := dlmalloc
+MALLOC_IMPL := dlmalloc
 
 # Copy rk3399 own init.rc file
 # TARGET_PROVIDES_INIT_RC := true
