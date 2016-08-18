@@ -162,6 +162,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
    persist.sys.alarm.fixed=300000
 endif
 
+# limit dex2oat threads to improve thermals
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.boot-dex2oat-threads=2 \
+    dalvik.vm.dex2oat-threads=2 \
+    dalvik.vm.image-dex2oat-threads=2
+
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
