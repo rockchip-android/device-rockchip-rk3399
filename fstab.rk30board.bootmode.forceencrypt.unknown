@@ -3,7 +3,7 @@
 # The filesystem that contains the filesystem checker binary (typically /system) cannot
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
-/dev/block/rknand_system                   /system             ext4      ro,noatime,nodiratime,noauto_da_alloc,discard                                 wait,resize,check
+/dev/block/rknand_system                   /system             ext4      ro,noatime,nodiratime,noauto_da_alloc,discard                                 wait,resize
 # use this line below instead to enable verity
 #/dev/block/rknand_system                 /system             ext4      ro,noatime,nodiratime,noauto_da_alloc                                          wait,check,verify
 /dev/block/rknand_cache                    /cache              ext4      noatime,nodiratime,nosuid,nodev,noauto_da_alloc,discard                       wait
