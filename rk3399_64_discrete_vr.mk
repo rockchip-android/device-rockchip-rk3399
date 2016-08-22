@@ -14,12 +14,14 @@
 # limitations under the License.
 #
 
-PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/rk3399.mk \
-    $(LOCAL_DIR)/rk3399_64.mk \
-    $(LOCAL_DIR)/rk3399_64_vr.mk \
-    $(LOCAL_DIR)/rk3399_64_discrete_vr.mk \
-    $(LOCAL_DIR)/rk3399_32.mk \
-    $(LOCAL_DIR)/rk3399_box.mk \
-    $(LOCAL_DIR)/rk3399_mid.mk \
-    $(LOCAL_DIR)/rk3399_64_only.mk
+$(call inherit-product, $(LOCAL_PATH)/rk3399_64.mk)
+
+PRODUCT_NAME := rk3399_64_discrete_vr
+PRODUCT_DEVICE := rk3399_64_discrete_vr
+PRODUCT_MODEL := vr
+
+# debug-logs
+ifneq ($(TARGET_BUILD_VARIANT),user)
+MIXIN_DEBUG_LOGS ?= true
+endif
+
