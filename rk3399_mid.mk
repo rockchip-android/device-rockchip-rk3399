@@ -36,6 +36,9 @@ BUILD_WITH_GOOGLE_FRP := true
 #for data encrypt options
 BUILD_WITH_FORCEENCRYPT := true
 
+#for GMS Certification
+BUILD_WITH_GMS_CER := false
+
 #for cts requirement
 ifeq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_PROPERTY_OVERRIDES += \
