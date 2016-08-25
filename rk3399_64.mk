@@ -23,3 +23,8 @@ MIXIN_DEBUG_LOGS ?= true
 endif
 
 BOARD_USE_APP_ALARM_ALIGNMENT ?= true
+
+PRODUCT_COPY_FILES += \
+   device/rockchip/rk3399/rk3399_64/ddr_config.xml:system/etc/ddr_config.xml \
+   device/rockchip/rk3399/rk3399_64/video_status:system/etc/video_status
+   
