@@ -1,5 +1,9 @@
+on post-fs
+    insmod /system/lib/modules/rk_ovr.ko
 service media /system/bin/mediaserver
     class main
     user media
     group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm
     ioprio rt 4
+
+
