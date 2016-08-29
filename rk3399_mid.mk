@@ -39,6 +39,9 @@ BUILD_WITH_FORCEENCRYPT := true
 #for GMS Certification
 BUILD_WITH_GMS_CER := false
 
+#for drm widevine
+BUILD_WITH_WIDEVINE := true
+
 #for cts requirement
 ifeq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_PROPERTY_OVERRIDES += \
