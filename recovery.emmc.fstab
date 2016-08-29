@@ -18,3 +18,4 @@
 /dev/block/platform/fe330000.sdhci/by-name/backup                /backup              emmc             defaults                  defaults
 /dev/block/platform/fe330000.sdhci/by-name/trust                 /trust               emmc             defaults                  defaults
 /dev/block/platform/fe330000.sdhci/by-name/baseparamer           /baseparamer         emmc             defaults                  defaults
+/dev/block/platform/fe330000.sdhci/by-name/frp                   /frp                 emmc             defaults                  defaults
