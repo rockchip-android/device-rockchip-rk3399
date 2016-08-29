@@ -171,6 +171,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
+ifeq ($(BUILD_WITH_WIDEVINE),true)
+$(call inherit-product-if-exists, vendor/widevine/widevine.mk)
+endif
 
 $(call inherit-product-if-exists, vendor/rockchip/rk3399/device-vendor.mk)
 
