@@ -45,6 +45,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/debug/init.debug.rc:root/init.debug.rc \
 	$(LOCAL_PATH)/init.rk30board.usb.rc:root/init.rk30board.usb.rc
 
+#fireware for dp
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/dptx.bin:root/lib/firmware/cdn/dptx.bin
+
 ifeq ($(BUILD_WITH_FORCEENCRYPT),true)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/fstab.rk30board.bootmode.forceencrypt.unknown:root/fstab.rk30board.bootmode.unknown \
