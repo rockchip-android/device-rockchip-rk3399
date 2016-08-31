@@ -1,13 +1,12 @@
 on post-fs-data
 
-    mkdir /data/video 774 media system
-    copy /etc/video_status /data/video/video_status
-    chown media system /data/video/video_status
-    chmod 0664 /data/video/video_status
-
     chown root system /sys/bus/platform/drivers/rk3399-dmc-freq/dmc/devfreq/dmc/min_freq
     chmod 0664 /sys/bus/platform/drivers/rk3399-dmc-freq/dmc/devfreq/dmc/min_freq
     write /sys/bus/platform/drivers/rk3399-dmc-freq/dmc/devfreq/dmc/min_freq 400000000
+    
+    #CABC
+    chown root system /sys/class/graphics/fb0/cabc
+    chmod 0664 /sys/class/graphics/fb0/cabc
 service media /system/bin/mediaserver
     class main
     user media
