@@ -6,7 +6,7 @@ add_lunch_combo rk3399_64-userdebug
 add_lunch_combo rk3399_64-user
 add_lunch_combo rk3399_64_vr-userdebug
 add_lunch_combo rk3399_64_vr-user
-add_lunch_combo rk3399_64_discrete_vr-userdebug
-add_lunch_combo rk3399_64_discrete_vr-user
+add_lunch_combo rk3399_disVR-userdebug
+add_lunch_combo rk3399_disVR-user
 add_lunch_combo rk3399_mid-userdebug
 add_lunch_combo rk3399_mid-user

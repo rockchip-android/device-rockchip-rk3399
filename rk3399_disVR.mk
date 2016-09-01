@@ -16,12 +16,15 @@
 
 $(call inherit-product, $(LOCAL_PATH)/rk3399_64.mk)
 
-PRODUCT_NAME := rk3399_64_discrete_vr
-PRODUCT_DEVICE := rk3399_64_discrete_vr
-PRODUCT_MODEL := vr
+PRODUCT_NAME := rk3399_disVR
+PRODUCT_DEVICE := rk3399_disVR
+PRODUCT_MODEL := rk3399_disVR
 
 # debug-logs
 ifneq ($(TARGET_BUILD_VARIANT),user)
 MIXIN_DEBUG_LOGS ?= true
 endif
+
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/rk3399_64_vr/rk-ovr.ko:/system/lib/modules/rk_ovr.ko
 
