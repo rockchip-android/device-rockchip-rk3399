@@ -16,9 +16,9 @@
 
 $(call inherit-product, $(LOCAL_PATH)/rk3399_64.mk)
 
-PRODUCT_NAME := rk3399_disVR
-PRODUCT_DEVICE := rk3399_disVR
-PRODUCT_MODEL := rk3399_disVR
+PRODUCT_NAME := rk3399_disvr
+PRODUCT_DEVICE := rk3399_disvr
+PRODUCT_MODEL := rk3399_disvr
 
 # debug-logs
 ifneq ($(TARGET_BUILD_VARIANT),user)
