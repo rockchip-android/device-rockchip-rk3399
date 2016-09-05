@@ -69,3 +69,7 @@ PRODUCT_HAS_CAMERA := true
 PRODUCT_COPY_FILES += \
    device/rockchip/rk3399/rk3399_64/ddr_config.xml:system/etc/ddr_config.xml \
    device/rockchip/rk3399/rk3399_64/video_status:system/etc/video_status 
+
+
+PRODUCT_PACKAGES += \
+    SoundRecorder
