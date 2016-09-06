@@ -184,3 +184,5 @@ endif
 
 $(call inherit-product-if-exists, vendor/rockchip/rk3399/device-vendor.mk)
 
+# Add product overlay
+PRODUCT_PACKAGE_OVERLAYS += $(TARGET_DEVICE_DIR)/overlay
