@@ -24,6 +24,10 @@ ifneq ($(TARGET_BUILD_VARIANT),user)
 MIXIN_DEBUG_LOGS ?= true
 endif
 
+DOUBLE_SCREEN ?= YES
+ROTATE_SCREEN ?= rotate_90
+
+BOOT_SHUTDOWN_ANIMATION_RINGING ?= true
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rk3399_64_vr/rk-ovr.ko:/system/lib/modules/rk_ovr.ko 
 
