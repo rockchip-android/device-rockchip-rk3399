@@ -45,3 +45,5 @@ sys.xxx.x_w=1152
 sys.xxx.x_h=2048
 #for seperate vr device
 ro.rotation.external=true
+#for start polling disvr sensor
+sys.start_rkvrd=1

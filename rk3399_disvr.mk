@@ -26,5 +26,6 @@ MIXIN_DEBUG_LOGS ?= true
 endif
 
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/rk3399_64_vr/rk-ovr.ko:/system/lib/modules/rk_ovr.ko
+	$(LOCAL_PATH)/rk3399_64_vr/rk-ovr.ko:/system/lib/modules/rk_ovr.ko \
+	$(LOCAL_PATH)/rk3399_disvr/rkvrd:/system/bin/rkvrd
 
