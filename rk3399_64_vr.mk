@@ -26,8 +26,22 @@ endif
 
 DOUBLE_SCREEN ?= YES
 ROTATE_SCREEN ?= rotate_90
+DUAL_SCREEN ?= true
 
 BOOT_SHUTDOWN_ANIMATION_RINGING ?= true
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rk3399_64_vr/rk-ovr.ko:/system/lib/modules/rk_ovr.ko 
+    $(LOCAL_PATH)/rk3399_64_vr/rk-ovr.ko:/system/lib/modules/rk_ovr.ko
 
+ifeq ($(DUAL_SCREEN),true)
+PRODUCT_PROPERTY_OVERRIDES := \
+	ro.sf.hwrotation=90 \
+	sys.xxx.x_w=0 \
+	sys.xxx.x_h=0 \
+	sys.vr.panel=1 \
+	sys.vr.params.inter=0.055 \
+	sys.vr.params.vert=0.037 \
+	sys.vr.params.screen=0.031 \
+	sys.vr.params.bk1=0.19 \
+	sys.vr.params.bk2=0.20 \
+	vr.video.direct=true
+endif
