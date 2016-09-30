@@ -26,7 +26,7 @@ endif
 
 DOUBLE_SCREEN ?= YES
 ROTATE_SCREEN ?= rotate_90
-DUAL_SCREEN ?= true
+DUAL_SCREEN ?= false
 
 BOOT_SHUTDOWN_ANIMATION_RINGING ?= true
 PRODUCT_COPY_FILES += \
@@ -34,7 +34,7 @@ PRODUCT_COPY_FILES += \
 
 ifeq ($(DUAL_SCREEN),true)
 PRODUCT_PROPERTY_OVERRIDES := \
-	ro.sf.hwrotation=90 \
+	ro.sf.hwrotation=180 \
 	sys.xxx.x_w=0 \
 	sys.xxx.x_h=0 \
 	sys.vr.panel=1 \
@@ -44,4 +44,10 @@ PRODUCT_PROPERTY_OVERRIDES := \
 	sys.vr.params.bk1=0.19 \
 	sys.vr.params.bk2=0.20 \
 	vr.video.direct=true
+else
+	PRODUCT_PROPERTY_OVERRIDES := \
+	ro.sf.hwrotation=0 \
+	sys.xxx.x_w=1152 \
+	sys.xxx.x_h=2048 \
+	persist.display.portrait=true
 endif
