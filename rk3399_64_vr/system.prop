@@ -9,7 +9,6 @@ ro.ril.ecclist=112,911
 ro.opengles.version = 196609
 wifi.interface=wlan0
 persist.tegra.nvmmlite = 1
-persist.display.portrait=true
 ro.audio.monitorOrientation=true
 
 #NFC
@@ -26,7 +25,6 @@ sys.wallpaper.rgb565=0
 sf.power.control=8847360
 sys.rkadb.root=0
 ro.sf.fakerotation=false
-ro.sf.hwrotation=0
 ro.rk.MassStorage=false
 ro.rk.systembar.voiceicon=true
 ro.rk.systembar.tabletUI=false
@@ -41,5 +39,3 @@ ro.factory.tool=0
 #set default lcd density for rk3399 tablet
 ro.sf.lcd_density=534
 ro.adb.secure =0
-sys.xxx.x_w=1152
-sys.xxx.x_h=2048
