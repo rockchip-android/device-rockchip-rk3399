@@ -33,7 +33,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rk3399_64_vr/rk-ovr.ko:/system/lib/modules/rk_ovr.ko
 
 ifeq ($(DUAL_SCREEN),true)
-PRODUCT_PROPERTY_OVERRIDES := \
+PRODUCT_PROPERTY_OVERRIDES += \
 	ro.sf.hwrotation=180 \
 	sys.xxx.x_w=0 \
 	sys.xxx.x_h=0 \
@@ -45,7 +45,7 @@ PRODUCT_PROPERTY_OVERRIDES := \
 	sys.vr.params.bk2=0.20 \
 	vr.video.direct=true
 else
-	PRODUCT_PROPERTY_OVERRIDES := \
+PRODUCT_PROPERTY_OVERRIDES += \
 	ro.sf.hwrotation=0 \
 	sys.xxx.x_w=1152 \
 	sys.xxx.x_h=2048 \
