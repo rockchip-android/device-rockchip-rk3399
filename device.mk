@@ -52,7 +52,8 @@ PRODUCT_COPY_FILES += \
 ifeq ($(BUILD_WITH_FORCEENCRYPT),true)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/fstab.rk30board.bootmode.forceencrypt.unknown:root/fstab.rk30board.bootmode.unknown \
-    $(LOCAL_PATH)/fstab.rk30board.bootmode.forceencrypt.emmc:root/fstab.rk30board.bootmode.emmc
+    $(LOCAL_PATH)/fstab.rk30board.bootmode.forceencrypt.emmc:root/fstab.rk30board.bootmode.emmc \
+    $(LOCAL_PATH)/fstab.rk30board.bootmode.emmc:root/fstab.rk30board
 else
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/fstab.rk30board.bootmode.unknown:root/fstab.rk30board.bootmode.unknown \
