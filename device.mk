@@ -41,6 +41,7 @@ endif
 #endif
 
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/init.${TARGET_BOARD_PLATFORM}.rc:root/init.${TARGET_BOARD_PLATFORM}.rc \
     $(LOCAL_PATH)/init.${TARGET_BOARD_PLATFORM_PRODUCT}.rc:root/init.${TARGET_BOARD_PLATFORM_PRODUCT}.rc \
     $(LOCAL_PATH)/debug/init.debug.rc:root/init.debug.rc \
 	$(LOCAL_PATH)/init.rk30board.usb.rc:root/init.rk30board.usb.rc

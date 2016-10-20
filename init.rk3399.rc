@@ -1,0 +1,15 @@
+on init
+
+    chown root system /sys/bus/platform/drivers/rk3399-dmc-freq/dmc/devfreq/dmc/min_freq
+    chmod 0644 /sys/bus/platform/drivers/rk3399-dmc-freq/dmc/devfreq/dmc/min_freq
+    chown root system /sys/bus/platform/drivers/rk3399-dmc-freq/dmc/devfreq/dmc/max_freq
+    chmod 0644 /sys/bus/platform/drivers/rk3399-dmc-freq/dmc/devfreq/dmc/max_freq
+    chown root system /sys/bus/platform/drivers/rk3399-dmc-freq/dmc/devfreq/dmc/governor
+    chmod 0644 /sys/bus/platform/drivers/rk3399-dmc-freq/dmc/devfreq/dmc/governor
+
+    chown root system /sys/class/devfreq/ff9a0000.gpu/governor
+    chmod 0644 /sys/class/devfreq/ff9a0000.gpu/governor
+    chown root system /sys/class/devfreq/ff9a0000.gpu/min_freq
+    chmod 0644 /sys/class/devfreq/ff9a0000.gpu/min_freq
+    chown root system /sys/class/devfreq/ff9a0000.gpu/max_freq
+    chmod 0644 /sys/class/devfreq/ff9a0000.gpu/max_freq
