@@ -39,6 +39,7 @@ BUILD_EMULATOR := false
 
 TARGET_BOARD_PLATFORM := rk3399
 TARGET_BOARD_PLATFORM_GPU := mali-t860
+BOARD_USE_DRM := true
 
 # RenderScript
 # OVERRIDE_RS_DRIVER := libnvRSDriver.so
