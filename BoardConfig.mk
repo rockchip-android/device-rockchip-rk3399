@@ -69,3 +69,5 @@ BOARD_SENSOR_MPU_VR := true
 
 //MAX-SIZE=2G, for generate out/.../system.img
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3221225472
+
+ENABLE_CPUSETS := true
