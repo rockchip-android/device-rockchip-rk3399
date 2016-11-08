@@ -19,6 +19,7 @@ service apk_logfs /system/vendor/bin/logcat_ep.sh auto \
         -b main -b system -b radio -b events -b crash -b kernel \
         -v threadtime -f /data/logs/aplog
     disabled
+    seclabel u:r:apk_logfs:s0
 
 service ap_logfs /system/vendor/bin/logcat_ep.sh auto \
         -b main -b system -b radio -b events -b crash \
@@ -33,6 +34,7 @@ service ap_logfs /system/vendor/bin/logcat_ep.sh auto \
 service ap_log_srv /system/vendor/bin/start_log_srv.sh
     class late_start
     oneshot
+    seclabel u:r:ap_log_srv_script:s0
 
 service earlylogs /system/vendor/bin/elogs.sh
     class core
