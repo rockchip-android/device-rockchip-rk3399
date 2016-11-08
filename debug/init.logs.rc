@@ -39,6 +39,7 @@ service ap_log_srv /system/vendor/bin/start_log_srv.sh
 service earlylogs /system/vendor/bin/elogs.sh
     class core
     oneshot
+    seclabel u:r:earlylogs:s0
 
 on nonencrypted
     stop earlylogs

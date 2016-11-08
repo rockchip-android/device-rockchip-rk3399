@@ -11,6 +11,7 @@ on post-fs-data
 
 service crashlogd /system/vendor/bin/crashlogd
     class late_start
+    seclabel u:r:crashlogd:s0
 
 # started by vendor/intel/log_capture/crashlog
 #service logsystemstate /system/vendor/bin/dumpstate_dropbox.sh -v
