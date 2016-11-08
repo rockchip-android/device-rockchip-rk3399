@@ -25,7 +25,7 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 # debug-logs
 ifneq ($(TARGET_BUILD_VARIANT),user)
-MIXIN_DEBUG_LOGS := false
+MIXIN_DEBUG_LOGS := true
 endif
 
 # google apps
