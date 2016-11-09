@@ -13,7 +13,7 @@
 #/dev/block/platform/fe330000.sdhci/by-name/userdata       /data               f2fs      noatime,nodiratime,nosuid,nodev,discard,inline_xattr,nobarrier   wait,check,notrim,encryptable=/metadata/key_file
 #data for ext4
 #/dev/block/platform/fe330000.sdhci/by-name/userdata       /data               ext4      noatime,nodiratime,nosuid,nodev,noauto_da_alloc,discard,errors=panic   wait,check,encryptable=/metadata/key_file
-/dev/block/platform/fe330000.rksdmmc/by-name/misc          /misc                emmc        defaults      defaults
+/dev/block/platform/fe330000.sdhci/by-name/misc          /misc                emmc        defaults      defaults
 # sdcard
 /devices/platform/fe320000.dwmmc/mmc_host*                auto  auto    defaults        voldmanaged=sdcard1:auto,encryptable=userdata
 
