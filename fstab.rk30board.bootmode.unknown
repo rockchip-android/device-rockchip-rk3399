@@ -9,6 +9,7 @@
 /dev/block/rknand_cache                    /cache              ext4      noatime,nodiratime,nosuid,nodev,noauto_da_alloc,discard                       wait
 /dev/block/rknand_metadata                 /metadata           ext4      noatime,nodiratime,nosuid,nodev,noauto_da_alloc,discard                       wait,check
 /dev/block/rknand_userdata                 /data               ext4      noatime,nodiratime,nosuid,nodev,noauto_da_alloc,discard,errors=panic          wait,check,encryptable=/metadata/key_file
+/dev/block/rknand_misc                    /misc              mtd       defaults         defaults
 
 /devices/ff0c0000.rksdmmc/mmc_host/mmc*          auto       auto       defaults        voldmanaged=sdcard1:auto,encryptable=userdata
 
