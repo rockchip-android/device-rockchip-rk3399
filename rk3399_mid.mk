@@ -29,7 +29,7 @@ MIXIN_DEBUG_LOGS := true
 endif
 
 # google apps
-BUILD_WITH_GOOGLE_MARKET := false
+BUILD_WITH_GOOGLE_MARKET := true
 BUILD_WITH_GOOGLE_MARKET_ALL := false
 BUILD_WITH_GOOGLE_FRP := false
 
