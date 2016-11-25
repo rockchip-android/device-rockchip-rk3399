@@ -11,5 +11,5 @@ PWR_HLD: 0,0,A,0,1
 #FDT_NAME: rk-kernel.dtb
 #RECOVER_KEY: 1,1,0,20,0
 #in section; per section 512(0x200) bytes
-CMDLINE: androidboot.baseband=N/A androidboot.selinux=disabled androidboot.hardware=rk30board androidboot.console=ttyFIQ0 init=/init mtdparts=rk29xxnand:0x00002000@0x00002000(uboot),0x00002000@0x00004000(trust),0x00002000@0x00006000(misc),0x00008000@0x00008000(resource),0x00008000@0x00010000(kernel),0x00010000@0x00018000(boot),0x00010000@0x00028000(recovery),0x00038000@0x00038000(backup),0x00040000@0x00070000(cache),0x00200000@0x000B0000(system),0x00008000@0x002B0000(metadata),0x00002000@0x002B8000(baseparamer),-@0x002BA000(userdata)
+CMDLINE: androidboot.baseband=N/A androidboot.selinux=disabled androidboot.hardware=rk30board androidboot.console=ttyFIQ0 init=/init mtdparts=rk29xxnand:0x00002000@0x00002000(uboot),0x00002000@0x00004000(trust),0x00002000@0x00006000(misc),0x00008000@0x00008000(resource),0x0000C000@0x00010000(kernel),0x00010000@0x0001C000(boot),0x00010000@0x0002C000(recovery),0x00038000@0x0003C000(backup),0x00040000@0x00074000(cache),0x00200000@0x000B4000(system),0x00008000@0x002B4000(metadata),0x00002000@0x002BC000(baseparamer),-@0x002BE000(userdata)
 
