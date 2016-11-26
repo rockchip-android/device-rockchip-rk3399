@@ -43,3 +43,5 @@ PRODUCT_MANUFACTURER := rockchip
 # Get the long list of APNs
 PRODUCT_COPY_FILES += vendor/rockchip/common/phone/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 PRODUCT_COPY_FILES += vendor/rockchip/common/phone/etc/spn-conf.xml:system/etc/spn-conf.xml
+
+TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS ?= true
