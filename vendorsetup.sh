@@ -10,3 +10,5 @@ add_lunch_combo rk3399_disvr-userdebug
 add_lunch_combo rk3399_disvr-user
 add_lunch_combo rk3399_mid-userdebug
 add_lunch_combo rk3399_mid-user
+add_lunch_combo rk3399_laptop-userdebug
+add_lunch_combo rk3399_laptop-user

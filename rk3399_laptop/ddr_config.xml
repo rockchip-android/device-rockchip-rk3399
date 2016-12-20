@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<ddr-config>
+<screen_on min_freq="400000000"/>
+<screen_off min_freq="200000000"/>
+<video_start min_freq="528000000"/>
+<video_pause min_freq="400000000"/>
+<video_stop min_freq="400000000"/>
+<video_2k min_freq="600000000"/>
+</ddr-config>
