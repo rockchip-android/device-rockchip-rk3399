@@ -48,7 +48,7 @@ PRODUCT_COPY_FILES += \
 
 #fireware for dp
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/dptx.bin:root/lib/firmware/cdn/dptx.bin
+    $(LOCAL_PATH)/dptx.bin:system/etc/firmware/rockchip/dptx.bin
 
 ifeq ($(BUILD_WITH_FORCEENCRYPT),true)
 PRODUCT_COPY_FILES += \
