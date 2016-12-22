@@ -1,0 +1,20 @@
+on post-fs-data
+
+    #CABC
+    chown root system /sys/class/graphics/fb0/cabc
+    chmod 0664 /sys/class/graphics/fb0/cabc
+
+on boot
+
+    # update cpusets feature nodes for rk3399 tablet
+    write /dev/cpuset/foreground/cpus 0-5
+    write /dev/cpuset/foreground/boost/cpus 0-5
+    write /dev/cpuset/background/cpus 0
+    write /dev/cpuset/system-background/cpus 0-3
+    write /dev/cpuset/top-app/cpus 0-5
+
+service media /system/bin/mediaserver
+    class main
+    user media
+    group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm
+    ioprio rt 4
