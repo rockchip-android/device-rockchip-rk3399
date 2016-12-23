@@ -73,6 +73,8 @@ PRODUCT_COPY_FILES += \
    device/rockchip/rk3399/rk3399_64/ddr_config.xml:system/etc/ddr_config.xml \
    device/rockchip/rk3399/rk3399_64/video_status:system/etc/video_status 
 
+PRODUCT_COPY_FILES += \
+   device/rockchip/rk3399/Vendor_103c_Product_184f.kl:system/usr/keylayout/Vendor_103c_Product_184f.kl \
 
 PRODUCT_PACKAGES += \
     SoundRecorder
