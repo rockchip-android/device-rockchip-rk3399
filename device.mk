@@ -50,6 +50,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/dptx.bin:system/etc/firmware/rockchip/dptx.bin
 
+#debug io bin
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/io:system/xbin/io
+
 ifeq ($(BUILD_WITH_FORCEENCRYPT),true)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/fstab.rk30board.bootmode.forceencrypt.unknown:root/fstab.rk30board.bootmode.unknown \
