@@ -48,7 +48,7 @@ PRODUCT_COPY_FILES += \
 
 #fireware for dp
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/dptx.bin:system/etc/firmware/rockchip/dptx.bin
+    $(LOCAL_PATH)/dptx.bin:root/lib/firmware/rockchip/dptx.bin
 
 #debug io bin
 PRODUCT_COPY_FILES += \
