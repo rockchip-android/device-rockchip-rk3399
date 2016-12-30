@@ -17,3 +17,14 @@ TARGET_2ND_CPU_VARIANT := cortex-a15
 BUILD_EMULATOR := false
 
 TARGET_BOARD_PLATFORM_PRODUCT := box
+
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3221225472
+
+# Enable dex-preoptimization to speed up first boot sequence
+ifeq ($(HOST_OS),linux)
+  ifeq ($(TARGET_BUILD_VARIANT),user)
+    WITH_DEXPREOPT := true
+  else
+    WITH_DEXPREOPT := false
+  endif
+endif
