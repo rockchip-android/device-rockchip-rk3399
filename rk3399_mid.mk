@@ -23,6 +23,8 @@ PRODUCT_MODEL := rk3399-mid
 PRODUCT_AAPT_CONFIG := normal large mdpi tvdpi hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
+PRODUCT_SYSTEM_VERITY := true
+
 # debug-logs
 ifneq ($(TARGET_BUILD_VARIANT),user)
 MIXIN_DEBUG_LOGS := true

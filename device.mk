@@ -198,3 +198,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.rk.hdmi_enable=false
 endif
 
+ifeq ($(strip $(PRODUCT_SYSTEM_VERITY)), true)
+# add verity dependencies
+$(call inherit-product, build/target/product/verity.mk)
+PRODUCT_SUPPORTS_BOOT_SIGNER := false
+PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/fe330000.sdhci/by-name/system
+
+# for warning
+PRODUCT_PACKAGES += \
+    slideshow \
+    verity_warning_images
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.software.verified_boot.xml:system/etc/permissions/android.software.verified_boot.xml
+endif

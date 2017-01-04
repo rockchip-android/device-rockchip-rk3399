@@ -23,7 +23,9 @@ PRODUCT_MODEL := rk3399-laptop
 TARGET_BOARD_PLATFORM_PRODUCT := laptop
 
 PRODUCT_AAPT_CONFIG := normal large hdpi xhdpi
-PRODUCT_AAPT_PREF_CONFIG := hdpi
+PRODUCT_AAPT_PREF_CONFIG := tvdpi
+
+PRODUCT_SYSTEM_VERITY := true
 
 # debug-logs
 ifneq ($(TARGET_BUILD_VARIANT),user)
