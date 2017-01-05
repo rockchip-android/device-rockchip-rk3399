@@ -18,7 +18,7 @@ BUILD_EMULATOR := false
 
 TARGET_BOARD_PLATFORM_PRODUCT := box
 
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3221225472
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1073741824
 
 # Enable dex-preoptimization to speed up first boot sequence
 ifeq ($(HOST_OS),linux)
