@@ -47,7 +47,7 @@ key 24    O
 key 25    P
 key 26    LEFT_BRACKET
 key 27    RIGHT_BRACKET
-key 28    ENTER
+key 96    ENTER
 key 29    CTRL_LEFT
 key 30    A
 key 31    S
@@ -115,7 +115,6 @@ key 92    HENKAN
 key 93    KATAKANA_HIRAGANA
 key 94    MUHENKAN
 key 95    NUMPAD_COMMA
-key 96    NUMPAD_ENTER
 key 97    CTRL_RIGHT
 key 98    NUMPAD_DIVIDE
 key 99    SYSRQ
