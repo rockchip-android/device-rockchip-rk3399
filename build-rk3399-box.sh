@@ -69,7 +69,6 @@ else
     echo "Make image failed!"
     exit 1
 fi
-#cp -f $IMAGE_PATH/* $PACK_TOOL_DIR/rockdev/Image/
 
 # copy images to rockdev
 #echo "copy u-boot images"
@@ -84,14 +83,16 @@ fi
 echo "copy manifest.xml"
 cp manifest.xml $IMAGE_PATH/manifest_${DATE}.xml
 
-#cd RKTools/linux/Linux_Pack_Firmware/rockdev && ./mkupdate.sh
-#if [ $? -eq 0 ]; then
-#    echo "Make update image ok!"
-#else
-#    echo "Make update image failed!"
-#    exit 1
-#fi
-#cd -
+cp -f $PACK_TOOL_DIR/rockdev_for_build/* rockdev/
+
+cd rockdev && ./mkupdate.sh
+if [ $? -eq 0 ]; then
+    echo "Make update image ok!"
+else
+    echo "Make update image failed!"
+    exit 1
+fi
+cd -
 
 mkdir -p $STUB_PATH
 
