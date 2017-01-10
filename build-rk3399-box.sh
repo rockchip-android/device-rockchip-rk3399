@@ -1,10 +1,21 @@
 #!/bin/bash
 
+usage()
+{
+ echo "USAGE: [-o] [-u] [-v VERSION_NAME]"
+ echo "No ARGS means use default build option"
+ echo "WHERE: -o = generate ota package       "
+ echo "       -u = generate update.img        "
+ echo "       -v = set build version name for output image folder"
+ exit 1
+}
+
 BUILD_UPDATE_IMG=false
 BUILD_OTA=false
+BUILD_VERSION="IMAGES"
 
 # check pass argument
-while getopts "ou" arg
+while getopts "ouv:" arg
 do
   case $arg in
     o)
@@ -15,8 +26,11 @@ do
       echo "will build update.img"
       BUILD_UPDATE_IMG=true
       ;;
+    v)
+      BUILD_VERSION=$OPTARG
+	  ;;
     ?)
-      echo "unknow argument\n use -v and -m to set need sync sdk"
+      usage ;;
   esac
 done
 
@@ -41,10 +55,11 @@ export PROJECT_TOP=`gettop`
 
 PLATFORM_VERSION=`get_build_var PLATFORM_VERSION`
 DATE=$(date  +%Y%m%d.%H%M)
-STUB_PATH=Image/"$KERNEL_DTS"_"$PLATFORM_VERSION"_"$DATE"_RELEASE_TEST
+STUB_PATH=Image/"$KERNEL_DTS"_"$PLATFORM_VERSION"_"$DATE"_"$BUILD_VERSION"
 STUB_PATH="$(echo $STUB_PATH | tr '[:lower:]' '[:upper:]')"
 export STUB_PATH=$PROJECT_TOP/$STUB_PATH
 export STUB_PATCH_PATH=$STUB_PATH/PATCHES
+#echo $STUB_PATH
 
 # build uboot
 echo "start build uboot"
