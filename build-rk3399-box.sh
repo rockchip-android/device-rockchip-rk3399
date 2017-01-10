@@ -1,5 +1,25 @@
 #!/bin/bash
 
+BUILD_UPDATE_IMG=false
+BUILD_OTA=false
+
+# check pass argument
+while getopts "ou" arg
+do
+  case $arg in
+    o)
+      echo "will build ota package"
+      BUILD_OTA=true
+      ;;
+    u)
+      echo "will build update.img"
+      BUILD_UPDATE_IMG=true
+      ;;
+    ?)
+      echo "unknow argument\n use -v and -m to set need sync sdk"
+  esac
+done
+
 source build/envsetup.sh >/dev/null && setpaths
 TARGET_PRODUCT=`get_build_var TARGET_PRODUCT`
 
@@ -83,16 +103,25 @@ fi
 echo "copy manifest.xml"
 cp manifest.xml $IMAGE_PATH/manifest_${DATE}.xml
 
-cp -f $PACK_TOOL_DIR/rockdev_for_build/* rockdev/
-
-cd rockdev && ./mkupdate.sh
-if [ $? -eq 0 ]; then
-    echo "Make update image ok!"
-else
-    echo "Make update image failed!"
-    exit 1
+if [ "$BUILD_UPDATE_IMG" = true ] ; then
+  echo "generate update.img"
+  cp -f $PACK_TOOL_DIR/rockdev_for_build/* rockdev/
+  cd rockdev
+  ./mkupdate.sh
+  if [ $? -eq 0 ]; then
+      echo "Make update image ok!"
+  else
+      echo "Make update image failed!"
+      exit 1
+  fi
+  cd -
 fi
-cd -
+
+if [ "$BUILD_OTA" = true ] ; then
+  echo "generate ota package"
+  make otapackage -j16
+  cp out/target/product/$TARGET_PRODUCT/${TARGET_PRODUCT}*.zip $IMAGE_PATH/
+fi
 
 mkdir -p $STUB_PATH
 
