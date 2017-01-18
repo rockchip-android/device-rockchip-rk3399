@@ -18,7 +18,12 @@ BUILD_EMULATOR := false
 
 TARGET_BOARD_PLATFORM_PRODUCT := box
 
+# Set system.img size
+ifeq ($(strip $(BUILD_BOX_WITH_GOOGLE_MARKET)), true)
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1500000000
+else
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1073741824
+endif
 
 # Enable dex-preoptimization to speed up first boot sequence
 ifeq ($(HOST_OS),linux)
