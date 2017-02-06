@@ -82,10 +82,16 @@ else
     exit 1
 fi
 
+lunch rk3399_box-userdebug
+
+# build wifi driver ko
+if [ -f "device/rockchip/common/build_wifi_ko.sh" ]; then
+    echo "start build wifi driver ko"
+    source device/rockchip/common/build_wifi_ko.sh
+fi
 
 # build android
 echo "start build android"
-lunch rk3399_box-userdebug
 make installclean
 make -j12
 if [ $? -eq 0 ]; then
