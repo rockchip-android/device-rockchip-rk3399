@@ -27,6 +27,7 @@ $(call inherit-product, device/rockchip/rk3399/product.mk)
 $(call inherit-product, device/rockchip/common/device.mk)
 
 PRODUCT_CHARACTERISTICS := tablet
+PRODUCT_SHIPPING_API_LEVEL :=25
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
