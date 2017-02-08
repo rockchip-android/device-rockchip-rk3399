@@ -44,3 +44,6 @@ ro.factory.tool=0
 ro.sf.lcd_density=213
 ro.adb.secure =0
 ro.rk.statusbar=0
+
+# default main framebuffer resolution
+persist.sys.framebuffer.main=1920x1080
