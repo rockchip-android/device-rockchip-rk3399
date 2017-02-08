@@ -9,5 +9,5 @@ on boot
 service media /system/bin/mediaserver
     class main
     user system
-    group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm
+    group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm sdcard_rw media_rw system
     ioprio rt 4
