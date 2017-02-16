@@ -113,5 +113,6 @@
          timeout expires.  May be less than the minimum allowed brightness setting
          that can be set by the user. -->
     <integer name="config_screenBrightnessDim">2</integer>
-
+    
+    <bool name="config_cameraDoubleTapPowerGestureEnabled">false</bool>
 </resources>
