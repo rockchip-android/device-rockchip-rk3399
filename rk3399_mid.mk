@@ -55,6 +55,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp,adb
 endif
 
+BOOT_SHUTDOWN_ANIMATION_RINGING := false
+
 BOARD_NFC_SUPPORT := false
 BOARD_HAS_GPS := false
 
