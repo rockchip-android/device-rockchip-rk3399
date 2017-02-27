@@ -214,3 +214,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.verified_boot.xml:system/etc/permissions/android.software.verified_boot.xml
 endif
+
+PRODUCT_COPY_FILES += \
+    device/rockchip/rk3399/public.libraries.txt:system/vendor/etc/public.libraries.txt
