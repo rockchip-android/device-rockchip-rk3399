@@ -6,6 +6,10 @@ on boot
     write /dev/cpuset/system-background/cpus 0-3
     write /dev/cpuset/top-app/cpus 0-5
 
+on property:sys.boot_completed=1
+    chown system system /sys/kernel/debug/usb@fe800000/rk_usb_force_mode
+    chmod 0664 /sys/kernel/debug/usb@fe800000/rk_usb_force_mode
+
 service media /system/bin/mediaserver
     class main
     user system
