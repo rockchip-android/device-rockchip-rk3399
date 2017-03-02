@@ -126,8 +126,18 @@ cp manifest.xml $IMAGE_PATH/manifest_${DATE}.xml
 
 if [ "$BUILD_UPDATE_IMG" = true ] ; then
   echo "generate update.img"
-  cp -f $PACK_TOOL_DIR/rockdev_for_build/* rockdev/
-  cd rockdev
+  unzip -o  $PACK_TOOL_DIR/Linux_rockdev_2015-06-17_for_RK3399.zip -d ${IMAGE_PATH}/../update_gen
+  cp ${IMAGE_PATH}/parameter.txt ${IMAGE_PATH}/../update_gen/rockdev/parameter.txt -rf
+  cp ${IMAGE_PATH}/parameter.txt ${IMAGE_PATH}/../update_gen/rockdev/parameter -rf
+  cp ${IMAGE_PATH}/trust.img ${IMAGE_PATH}/../update_gen/rockdev/trust.img -rf
+  cp ${IMAGE_PATH}/uboot.img ${IMAGE_PATH}/../update_gen/rockdev/uboot.img -rf
+  cp ${IMAGE_PATH}/MiniLoaderAll.bin ${IMAGE_PATH}/../update_gen/rockdev/RK3399MiniLoaderAll_V1.05.bin -rf
+  cp ${IMAGE_PATH}/*      ${IMAGE_PATH}/../update_gen/rockdev/Image/ -rf
+  cd ${IMAGE_PATH}/../update_gen/rockdev
+  chmod +x ./mkupdate.sh
+  chmod +x ./afptool
+  chmod +x ./rkImageMaker
+  chmod +x ./unpack.sh
   ./mkupdate.sh
   if [ $? -eq 0 ]; then
       echo "Make update image ok!"
@@ -136,6 +146,8 @@ if [ "$BUILD_UPDATE_IMG" = true ] ; then
       exit 1
   fi
   cd -
+  cp ${IMAGE_PATH}/../update_gen/rockdev/update.img ${IMAGE_PATH}/update.img
+  rm -rf ${IMAGE_PATH}/../update_gen
 fi
 
 if [ "$BUILD_OTA" = true ] ; then
