@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
 <wakelock-package>
-<!--
 <app package="com.google.android.gms"/>
+<!--
 <app package="com.google.android.youtube"/>
 <app package="com.android.vending"/>
 <app package="com.google.android.partnersetup"/>
