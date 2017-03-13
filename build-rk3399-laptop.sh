@@ -63,7 +63,7 @@ export STUB_PATCH_PATH=$STUB_PATH/PATCHES
 
 # build uboot
 echo "start build uboot"
-cd u-boot && make distclean && make $UBOOT_DEFCONFIG && make ARCHV=aarch64 -j12 && cd -
+cd u-boot && make clean && make $UBOOT_DEFCONFIG && make ARCHV=aarch64 -j12 && cd -
 if [ $? -eq 0 ]; then
     echo "Build uboot ok!"
 else
@@ -74,7 +74,7 @@ fi
 
 # build kernel
 echo "Start build kernel"
-cd kernel && make ARCH=arm64 $KERNEL_DEFCONFIG && make ARCH=arm64 $KERNEL_DTS.img -j12 && cd -
+cd kernel && make clean && make ARCH=arm64 $KERNEL_DEFCONFIG && make ARCH=arm64 $KERNEL_DTS.img -j12 && cd -
 if [ $? -eq 0 ]; then
     echo "Build kernel ok!"
 else
@@ -154,6 +154,7 @@ if [ "$BUILD_OTA" = true ] ; then
   echo "generate ota package"
   make otapackage -j16
   cp out/target/product/$TARGET_PRODUCT/${TARGET_PRODUCT}*.zip $IMAGE_PATH/
+  cp out/target/product/$TARGET_PRODUCT/obj/PACKAGING/target_files_intermediates/${TARGET_PRODUCT}*.zip $IMAGE_PATH/
 fi
 
 mkdir -p $STUB_PATH
