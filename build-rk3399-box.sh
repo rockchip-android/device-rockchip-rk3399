@@ -124,6 +124,14 @@ fi
 echo "copy manifest.xml"
 cp manifest.xml $IMAGE_PATH/manifest_${DATE}.xml
 
+if [ "$BUILD_OTA" = true ] ; then
+  echo "generate ota package"
+  make otapackage -j16
+  ./mkimage.sh ota
+  cp out/target/product/$TARGET_PRODUCT/${TARGET_PRODUCT}*.zip $IMAGE_PATH/
+  cp out/target/product/$TARGET_PRODUCT/obj/PACKAGING/target_files_intermediates/${TARGET_PRODUCT}*.zip $IMAGE_PATH/
+fi
+
 if [ "$BUILD_UPDATE_IMG" = true ] ; then
   echo "generate update.img"
   cp -f $PACK_TOOL_DIR/rockdev_for_build/* rockdev/
@@ -136,13 +144,6 @@ if [ "$BUILD_UPDATE_IMG" = true ] ; then
       exit 1
   fi
   cd -
-fi
-
-if [ "$BUILD_OTA" = true ] ; then
-  echo "generate ota package"
-  make otapackage -j16
-  cp out/target/product/$TARGET_PRODUCT/${TARGET_PRODUCT}*.zip $IMAGE_PATH/
-  cp out/target/product/$TARGET_PRODUCT/obj/PACKAGING/target_files_intermediates/${TARGET_PRODUCT}*.zip $IMAGE_PATH/
 fi
 
 mkdir -p $STUB_PATH
