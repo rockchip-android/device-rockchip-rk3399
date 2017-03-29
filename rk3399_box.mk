@@ -32,3 +32,6 @@ PRODUCT_AAPT_PREF_CONFIG := tvdpi
 ifneq ($(TARGET_BUILD_VARIANT),user)
 MIXIN_DEBUG_LOGS := true
 endif
+
+#for drm widevine
+BUILD_WITH_WIDEVINE := true
