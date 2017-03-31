@@ -1,3 +1,20 @@
+on early-init
+    # raise cpu fre.
+    chmod  0644 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor performance
+    chmod  0644 /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor performance
+
+on property:sys.boot_completed=1
+    # recover cpu fre.
+    chmod  0644 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
+    chmod  0644 /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor interactive
+    # chmod switch usb mode node
+    chown system system /sys/kernel/debug/usb@fe800000/rk_usb_force_mode
+    chmod 0664 /sys/kernel/debug/usb@fe800000/rk_usb_force_mode
+
 on boot
     # update cpusets feature nodes for rk3399 tablet
     write /dev/cpuset/foreground/cpus 0-5
@@ -5,10 +22,6 @@ on boot
     write /dev/cpuset/background/cpus 0
     write /dev/cpuset/system-background/cpus 0-3
     write /dev/cpuset/top-app/cpus 0-5
-
-on property:sys.boot_completed=1
-    chown system system /sys/kernel/debug/usb@fe800000/rk_usb_force_mode
-    chmod 0664 /sys/kernel/debug/usb@fe800000/rk_usb_force_mode
 
 service media /system/bin/mediaserver
     class main
