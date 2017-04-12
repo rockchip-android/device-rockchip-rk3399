@@ -6,7 +6,6 @@
 #rild.libargs=-d /dev/ttyUSB2
 # Default ecclist
 ro.ril.ecclist=112,911
-ro.opengles.version = 196609
 wifi.interface=wlan0
 rild.libpath=/system/lib/libril-rk29-dataonly.so
 rild.libargs=-d /dev/ttyACM0

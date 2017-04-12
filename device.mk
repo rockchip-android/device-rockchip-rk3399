@@ -15,7 +15,7 @@
 #
 PRODUCT_PROPERTY_OVERRIDES := \
     wifi.interface=wlan0 \
-    ro.opengles.version=196609
+    ro.opengles.version=196610
 
 PRODUCT_PACKAGES += \
     memtrack.$(TARGET_BOARD_PLATFORM) \
