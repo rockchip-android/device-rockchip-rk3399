@@ -63,6 +63,9 @@ BOARD_SENSOR_MPU := false
 BOARD_SENSOR_MPU_VR := true
 #BOARD_USES_GENERIC_INVENSENSE := false
 
+# GPU MaliT860 support opengl aep
+BOARD_OPENGL_AEP := true
+
 # Copy rk3399 own init.rc file
 # TARGET_PROVIDES_INIT_RC := true
 
