@@ -80,6 +80,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
    device/rockchip/rk3399/Vendor_103c_Product_184f.kl:system/usr/keylayout/Vendor_103c_Product_184f.kl \
+   device/rockchip/rk3399/Vendor_103c_Product_184f.idc:system/usr/idc/Vendor_103c_Product_184f.idc \
 
 PRODUCT_PACKAGES += \
     SoundRecorder
