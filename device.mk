@@ -20,7 +20,8 @@ PRODUCT_PROPERTY_OVERRIDES := \
 PRODUCT_PACKAGES += \
     memtrack.$(TARGET_BOARD_PLATFORM) \
     WallpaperPicker \
-    Launcher3
+    Launcher3 \
+    RetailDemo
 
 #enable this for support f2fs with data partion
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
@@ -217,3 +218,10 @@ endif
 
 PRODUCT_COPY_FILES += \
     device/rockchip/rk3399/public.libraries.txt:system/vendor/etc/public.libraries.txt
+
+ifeq ($(strip $(BUILD_WITH_GOOGLE_MARKET)), true)
+ifeq ($(strip $(BUILD_WITH_GOOGLE_FRP)), true)
+       PRODUCT_PROPERTY_OVERRIDES += \
+        ro.frp.pst=/dev/block/platform/fe330000.sdhci/by-name/frp
+endif
+endif
