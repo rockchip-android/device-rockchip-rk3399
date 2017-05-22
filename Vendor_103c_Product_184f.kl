@@ -440,3 +440,6 @@ led 0x09 MAIL
 led 0x0a CHARGING
 key 218   FLYMODE
 key 248   MICMUTE
+key 0x007f MENU  
+key 0x002b IME_SWITCH  
+key 0x0017 SETTINGS  
