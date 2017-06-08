@@ -82,3 +82,5 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     SoundRecorder
+
+#PRODUCT_HAVE_OPTEE := true
