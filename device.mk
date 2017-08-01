@@ -182,8 +182,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.image-dex2oat-threads=2
 
 PRODUCT_COPY_FILES += \
-        device/rockchip/rk3399/package_performance.xml:system/etc/package_performance.xml \
-        device/rockchip/rk3399/ddr_config.xml:system/etc/ddr_config.xml
+        device/rockchip/rk3399/package_performance.xml:system/etc/package_performance.xml
 
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)

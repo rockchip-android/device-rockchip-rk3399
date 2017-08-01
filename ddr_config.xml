@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
-<ddr-config>
-<screen_on min_freq="2"/>
-<screen_off min_freq="0"/>
-<video_normal min_freq="2"/>
-<video_perf min_freq="3"/>
-</ddr-config>
