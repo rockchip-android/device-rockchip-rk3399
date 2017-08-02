@@ -75,6 +75,9 @@ BOARD_USB_HOST_SUPPORT := true
 PRODUCT_HAS_CAMERA := true
 TARGET_ROCKCHIP_PCBATEST := false
 
+#for ddr var support
+BOARD_DDR_VAR_ENABLED := true
+
 PRODUCT_COPY_FILES += \
    device/rockchip/rk3399/rk3399_64/ddr_config.xml:system/etc/ddr_config.xml \
    device/rockchip/rk3399/rk3399_64/video_status:system/etc/video_status 
