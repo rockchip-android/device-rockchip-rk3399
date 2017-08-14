@@ -196,11 +196,6 @@ $(call inherit-product-if-exists, vendor/rockchip/rk3399/device-vendor.mk)
 # Add product overlay
 PRODUCT_PACKAGE_OVERLAYS += $(TARGET_DEVICE_DIR)/overlay
 
-ifeq ($(strip $(TARGET_BOARD_PLATFORM_PRODUCT)), tablet)
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.rk.hdmi_enable=false
-endif
-
 ifeq ($(strip $(PRODUCT_SYSTEM_VERITY)), true)
 # add verity dependencies
 $(call inherit-product, build/target/product/verity.mk)
