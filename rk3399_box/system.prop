@@ -48,3 +48,6 @@ ro.rk.displayd.enable=false
 
 # default main framebuffer resolution
 persist.sys.framebuffer.main=1920x1080
+
+# default primary display
+sys.hwc.device.primary=HDMI-A
