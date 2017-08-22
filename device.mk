@@ -187,8 +187,12 @@ PRODUCT_COPY_FILES += \
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
-ifeq ($(BUILD_WITH_WIDEVINE),true)
+ifeq ($(BOARD_WIDEVINE_OEMCRYPTO_LEVEL),3)
 $(call inherit-product-if-exists, vendor/widevine/widevine.mk)
+else
+ifeq ($(BOARD_WIDEVINE_OEMCRYPTO_LEVEL),1)
+$(call inherit-product-if-exists, vendor/widevine/L1/widevine_level1.mk)
+endif
 endif
 
 $(call inherit-product-if-exists, vendor/rockchip/rk3399/device-vendor.mk)
