@@ -185,7 +185,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
 ifeq ($(BOARD_WIDEVINE_OEMCRYPTO_LEVEL),3)
-$(call inherit-product-if-exists, vendor/widevine/widevine.mk)
+$(call inherit-product-if-exists, vendor/widevine/L3/widevine_level3.mk)
 else
 ifeq ($(BOARD_WIDEVINE_OEMCRYPTO_LEVEL),1)
 $(call inherit-product-if-exists, vendor/widevine/L1/widevine_level1.mk)
