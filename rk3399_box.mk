@@ -32,9 +32,7 @@ PRODUCT_AAPT_PREF_CONFIG := tvdpi
 BOARD_USB_ALLOW_DEFAULT_MTP := true
 
 # debug-logs
-ifneq ($(TARGET_BUILD_VARIANT),user)
-MIXIN_DEBUG_LOGS := true
-endif
+MIXIN_DEBUG_LOGS := false
 
 #for drm widevine
 BUILD_WITH_WIDEVINE := true
